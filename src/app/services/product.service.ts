@@ -30,4 +30,12 @@ export class ProductService {
   editStock(barcode: string, stock: number): Promise<any>{
     return lastValueFrom(this.http.get(this.apiURL + barcode + '/' + stock))
   }
+
+  editClass(barcode: string, classproduct: string): Promise<any>{
+    return lastValueFrom(this.http.get(this.apiURL + '/editclass/' + barcode + '/' + classproduct))
+  }
+
+  recategorize(): Promise<any>{
+    return lastValueFrom(this.http.get(this.apiURL + 'recategorize'))
+  }
 }

@@ -62,6 +62,7 @@ export class SellProductComponent implements OnInit {
       .catch(error =>{
         console.log(error.error.error.message)
         this.message = error.error.error.message;
+        alert("Se aconseja recategorizar los productos.")
         ;
       })
   }

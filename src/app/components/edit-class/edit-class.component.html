@@ -1,0 +1,37 @@
+<main class="py-5">
+    <section class="mb-5">
+         <form [formGroup]="editClassForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <h3 class="mb-3">Edit Stock</h3>
+                <div class="bg-light p-4">
+                    <div class="row">                                                                         
+                        <div class="col-lg-4">
+                            <label for="">Codigo EAN</label>
+                            <select id="barcode" formControlName="barcode" name="barcode" class="form-select">
+                                <option selected>Codigo Barras</option>
+                                <option *ngFor="let product of productList">{{ product.barcode }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <label for="">Clase/Categoría</label>
+                            <select id="barcode" formControlName="classproduct" name="classproduct" class="form-select">
+                                <option selected>A</option>
+                                <option>B</option>
+                                <option>C</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <label for="">Clave de Seguridad</label>
+                            <input type="password" name="password" formControlName="password" class="form-control form-control-ml" required value="">
+                        </div>
+                    </div>
+                    {{ message }}
+                    <hr class="mb-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!editClassForm.valid">Editar</button>                    
+                </div>
+            </div>
+         </form>
+    </section>
+</main>
