@@ -12,9 +12,6 @@ export class EditStockComponent implements OnInit {
   editStockForm: FormGroup;
   message: string = '';
   productList: Array<Product> = [];
-  bc: string
-  st: number
-  pass: string
 
   constructor(private productService: ProductService) { }
 
@@ -35,11 +32,13 @@ export class EditStockComponent implements OnInit {
   }
 
   onSubmit(){
-    this.pass = this.editStockForm.get('password').value
-    if (this.pass == "Admin123") {
-      this.bc = this.editStockForm.get('barcode').value
-      this.st = this.editStockForm.get('stock').value
-      this.productService.editStock(this.bc, this.st)
+    let pass = this.editStockForm.get('password').value
+    let bc: string
+    let st: number
+    if (pass == "Admin123") {
+      bc = this.editStockForm.get('barcode').value
+      st = this.editStockForm.get('stock').value
+      this.productService.editStock(bc, st)
       this.message = "Modificado con éxito"
     }
     else {

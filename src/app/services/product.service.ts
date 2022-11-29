@@ -22,6 +22,11 @@ export class ProductService {
     return lastValueFrom(this.http.get(this.apiURL));
   }
 
+  getByBarcode(barcode: string): Promise<any>{
+    //return this.http.get(this.apiURL).toPromise();
+    return lastValueFrom(this.http.get(this.apiURL + barcode));
+  }
+
   editStock(barcode: string, stock: number): Promise<any>{
     return lastValueFrom(this.http.get(this.apiURL + barcode + '/' + stock))
   }

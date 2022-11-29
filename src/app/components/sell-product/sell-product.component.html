@@ -1,0 +1,55 @@
+<main class="py-5">
+    <section class="mb-5">
+         <form [formGroup]="sellForm" (ngSubmit)="onSubmit()">
+            <div class="container">
+                <h3 class="mb-3">Edit Stock</h3>
+                <div class="bg-light p-4">
+                    <div class="row">                                                                         
+                        <div class="col-lg-4">
+                            <label for="">Codigo EAN</label>
+                            <select id="barcode" formControlName="barcode" name="barcode" class="form-select">
+                                <option selected>Codigo Barras</option>
+                                <option *ngFor="let product of productList">{{ product.barcode }}</option>
+                            </select>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <label for="">Cantidad</label>
+                            <input type="number" name="lot" formControlName="lot" class="form-control form-control-ml" required value="">
+                        </div>
+                    </div>
+                    {{ message }}
+                    <hr class="mb-4">
+                    <button type="submit" class="btn btn-primary" [disabled]="!sellForm.valid">Agregar</button>                    
+                </div>
+            </div>
+         </form>
+    </section>
+    
+    <section id="listado" class="mb-5">
+        <div class="container">
+             <h2 class="mb-4">Resumen de Venta</h2>
+             <table class="table table-striped">
+               <thead class="thead-dark">
+                 <tr>
+                   <th scope="col">Codigo EAN</th>
+                   <th scope="col">Descripción</th>
+                   <th scope="col">Precio</th>
+                   <th scope="col">Cantidad</th>
+                 </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let detail of detailList">
+                   <td>{{ detail.product.barcode }}</td>
+                   <td>{{ detail.product.description }}</td>
+                   <td>${{ detail.product.price }}</td>
+                   <td>{{ detail.lot }} u.</td>
+                 </tr>                  
+               </tbody>
+             </table>
+        </div>
+        <div class="container">
+            <button class="btn btn-primary" (click)="addSale()">Generar Venta</button>
+        </div>
+   </section>
+</main>
