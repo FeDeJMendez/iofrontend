@@ -1,0 +1,27 @@
+<div class="container">
+    <h2>Nuevo Producto</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="row g-3">
+        <div class="col-md-6">
+          <label for="barcode" class="form-label">Codigo EAN / de Barras</label>
+          <input type="text" formControlName="barcode" class="form-control" id="barcode">
+        </div>
+        <div class="col-md-6">
+            <label for="description" class="form-label">Descripción</label>
+            <input type="text" formControlName="description" class="form-control" id="description">
+          </div>
+        <div class="col-md-6">
+            <label for="price" class="form-label">Precio</label>
+            <input type="number" step="0.01" formControlName="price" class="form-control" id="price">
+        </div>
+        <div class="col-lg-4">
+            <label for="">Stock Inicial</label>
+            <input type="number" name="stock" formControlName="stock" class="form-control form-control-ml">
+        </div>
+        <div class="col-11">
+        </div>
+        {{ message }}
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary" [disabled]="!productForm.valid">Guardar Producto</button>
+        </div>
+    </form>
+</div>

@@ -10,6 +10,7 @@ import { EditStockComponent } from './components/edit-stock/edit-stock.component
 import { SellProductComponent } from './components/sell-product/sell-product.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { EditClassComponent } from './components/edit-class/edit-class.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditClassComponent } from './components/edit-class/edit-class.component
     EditStockComponent,
     SellProductComponent,
     WelcomeComponent,
-    EditClassComponent
+    EditClassComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,
