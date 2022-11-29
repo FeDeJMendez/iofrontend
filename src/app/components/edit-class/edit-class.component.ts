@@ -18,8 +18,8 @@ export class EditClassComponent implements OnInit {
   ngOnInit(): void {
     this.editClassForm = new FormGroup({
       barcode: new FormControl('',[Validators.required]),
-      price: new FormControl('',[Validators.required]),
-      stock: new FormControl('',[Validators.required])
+      classproduct: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     });
 
     this.productService.getAll()
