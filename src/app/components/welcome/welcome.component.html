@@ -4,4 +4,18 @@
               <h2 class="mb-4">Bienvenido</h2>              
          </div>
     </section>
+    <section id="listado" class="mb-5">
+        <div class="container">
+            <h3 class="mb-4">Fecha actual: {{ hoy }}</h3>    
+            <h3 class="mb-4">Temporada: {{ season }}</h3>  
+        </div>
+   </section>
+   <section id="listado" class="mb-5">
+    <div class="container">
+        <h3 class="mb-4">Productos En Fecha de Reorden:</h3>    
+        <ul *ngFor="let product of sellProducts">
+            <li> {{ product.barcode }} -- {{ product.description }} </li>
+        </ul>  
+    </div>
+</section>
 </main>

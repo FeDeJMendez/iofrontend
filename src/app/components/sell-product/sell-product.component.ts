@@ -48,6 +48,9 @@ export class SellProductComponent implements OnInit {
       });
     result = this.productList.filter(pr => pr.barcode == bc)
     product = result[0];
+    if (((product.stock - lot) < 10) && (product.classProduct=="A" || product.classProduct=="B")) {
+      alert("Llegado el punto de reorden del producto " + product.barcode)
+    }
     console.log(product)
     detail.product = product
     detail.lot = lot 
