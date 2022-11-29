@@ -14,13 +14,15 @@ export class EditStockComponent implements OnInit {
   productList: Array<Product> = [];
   bc: string
   st: number
+  pass: string
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.editStockForm = new FormGroup({
       barcode: new FormControl('',[Validators.required]),
-      stock: new FormControl('',[Validators.required])
+      stock: new FormControl('',[Validators.required]),
+      password: new FormControl('',[Validators.required])
     });
 
     this.productService.getAll()
@@ -33,10 +35,16 @@ export class EditStockComponent implements OnInit {
   }
 
   onSubmit(){
-    this.bc = this.editStockForm.get('barcode').value
-    this.st = this.editStockForm.get('stock').value
-    this.productService.editStock(this.bc, this.st)
-    this.message = "Modificado con éxito!"
+    this.pass = this.editStockForm.get('password').value
+    if (this.pass == "Admin123") {
+      this.bc = this.editStockForm.get('barcode').value
+      this.st = this.editStockForm.get('stock').value
+      this.productService.editStock(this.bc, this.st)
+      this.message = "Modificado con éxito"
+    }
+    else {
+      this.message = "Clave de Admin Incorrecta"
+    }
   }
 
 }
